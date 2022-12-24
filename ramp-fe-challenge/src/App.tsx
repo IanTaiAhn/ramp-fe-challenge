@@ -81,6 +81,9 @@ export function App() {
               disabled={paginatedTransactionsUtils.loading}
               onClick={async () => {
                 await loadAllTransactions()
+                // I thinnk we need to add more rows some how.
+                // wrong here because it is loading all of the trnasactions.
+                
               }}
             >
               View More

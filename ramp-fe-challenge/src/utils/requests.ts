@@ -30,15 +30,18 @@ export const getTransactionsPaginated = ({
   if (start > data.transactions.length) {
     throw new Error(`Invalid page ${page}`)
   }
-
+  // console.log("start: " + (start))
+  // console.log("end: " + (end));
+  // console.log(data.transactions.length);
+  // console.log(data.transactions);
   const nextPage = end < data.transactions.length ? page + 1 : null
+  // console.log(data.transactions.slice(0, end))
 
   return {
     nextPage,
-    data: data.transactions.slice(start, end),
+    data: data.transactions.slice(0, end),
   }
 }
-
 export const getTransactionsByEmployee = ({ employeeId }: RequestByEmployeeParams) => {
   if (!employeeId) {
     throw new Error("Employee id cannot be empty")
