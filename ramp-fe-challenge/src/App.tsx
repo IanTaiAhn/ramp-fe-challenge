@@ -41,8 +41,8 @@ export function App() {
     if (employees === null && !employeeUtils.loading) {
       loadAllTransactions()
     }
+    
   }, [employeeUtils.loading, employees, loadAllTransactions])
-
   return (
     <Fragment>
       <main className="MainContainer">
@@ -64,11 +64,12 @@ export function App() {
             if (newValue === null) {
               return
             }
-
+            if (newValue.id === "1") {
+              loadAllTransactions();
+            }
             await loadTransactionsByEmployee(newValue.id)
           }}
         />
-
         <div className="RampBreak--l" />
 
         <div className="RampGrid">

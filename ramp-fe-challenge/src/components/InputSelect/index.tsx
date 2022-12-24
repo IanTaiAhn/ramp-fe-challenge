@@ -20,9 +20,9 @@ export function InputSelect<TItem>({
     top: 0,
     left: 0,
   })
-  console.log(label);
-  console.log(defaultValue);
-  // console.log(consumerOnChange);
+  // console.log(label);
+  // console.log(defaultValue);
+  // // console.log(consumerOnChange);
   // console.log(items);
   // console.log(parseItem);
 
@@ -38,6 +38,7 @@ export function InputSelect<TItem>({
       }
       // console.log(selectedItem);
       // console.log(selectedItem.id)
+      // console.log(selectedValue);
       consumerOnChange(selectedItem)
       setSelectedValue(selectedItem)
     },
