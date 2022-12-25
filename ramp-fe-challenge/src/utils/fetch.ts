@@ -1,3 +1,4 @@
+import { time } from "console"
 import {
   getEmployees,
   getTransactionsPaginated,
@@ -7,8 +8,9 @@ import {
 import { PaginatedRequestParams, RequestByEmployeeParams, SetTransactionApprovalParams } from "./types"
 
 const timeout = getTimeout()
+const mockTimeoutForEmp = timeout
 const mockTimeout = 1 * timeout
-
+// console.log(timeout);
 export function fakeFetch<TData, TParams extends object = object>(
   endpoint: RegisteredEndpoints,
   params?: TParams
@@ -19,26 +21,33 @@ export function fakeFetch<TData, TParams extends object = object>(
       data: { endpoint, params },
       type: "info",
     })
-
+    console.log("endpoint: " + (endpoint))
+    console.log("params: " + (params))
     let result: TData
+
+    if (endpoint === "employees") {
+      
+    }
 
     try {
       switch (endpoint) {
         case "employees":
           result = getEmployees() as unknown as TData
-
+          console.log("employees fired");
           setTimeout(() => {
             mockApiLogger({ data: { endpoint, params, result } })
             resolve(result)
+            console.log("emp finished")
           }, mockTimeout)
           break
 
         case "paginatedTransactions":
           result = getTransactionsPaginated(params as PaginatedRequestParams) as unknown as TData
-
+          console.log("paginated fired")
           setTimeout(() => {
             mockApiLogger({ data: { endpoint, params, result } })
             resolve(result)
+            console.log("paginated fnished")
           }, mockTimeout * 2.5)
           break
 
@@ -73,7 +82,9 @@ export function fakeFetch<TData, TParams extends object = object>(
         reject(error.message)
       }
     }
+
   })
+
 }
 
 function mockApiLogger({
