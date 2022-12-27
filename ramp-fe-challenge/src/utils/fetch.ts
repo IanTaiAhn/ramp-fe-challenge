@@ -58,7 +58,7 @@ export function fakeFetch<TData, TParams extends object = object>(
           }, mockTimeout)
           console.log(endpoint + (" first"));
           break
-
+          
         case "paginatedTransactions":
           result = getTransactionsPaginated(params as PaginatedRequestParams) as unknown as TData
           console.log("paginated fired")

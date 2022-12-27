@@ -9,6 +9,8 @@ export function useEmployees(): EmployeeResult {
 // console.log(employees);
   const fetchAll = useCallback(async () => {
     const employeesData = await fetchWithCache<Employee[]>("employees")
+    // const employeesData = await fet<Employee[]>("employees")
+
     setEmployees(employeesData)
   }, [fetchWithCache])
 
