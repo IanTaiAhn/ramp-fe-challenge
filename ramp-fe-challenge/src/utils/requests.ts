@@ -32,8 +32,8 @@ export const getTransactionsPaginated = ({
   }
   // console.log("start: " + (start))
   // console.log("end: " + (end));
-  // console.log(data.transactions.length);
-  // console.log(data.transactions);
+  console.log(data.transactions.length);
+  console.log(data.transactions);
   const nextPage = end < data.transactions.length ? page + 1 : null
   // console.log(data.transactions.slice(0, end))
 

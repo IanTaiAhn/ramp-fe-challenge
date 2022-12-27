@@ -32,7 +32,11 @@ export function App() {
   const loadTransactionsByEmployee = useCallback(
     async (employeeId: string) => {
       paginatedTransactionsUtils.invalidateData()
+      // console.log("before fetch")
+      // console.log(transactionsByEmployeeUtils.loading);
       await transactionsByEmployeeUtils.fetchById(employeeId)
+      // console.log("after fetch")
+      // console.log(transactionsByEmployeeUtils.loading);
     },
     [paginatedTransactionsUtils, transactionsByEmployeeUtils]
   )
@@ -67,7 +71,8 @@ export function App() {
             if (newValue.id === "1") {
               loadAllTransactions();
             }
-            await loadTransactionsByEmployee(newValue.id)
+            console.log(newValue);
+            loadTransactionsByEmployee(newValue.id)
           }}
         />
         <div className="RampBreak--l" />
@@ -78,12 +83,9 @@ export function App() {
           {transactions !== null && (
             <button
               className="RampButton"
-              disabled={paginatedTransactionsUtils.loading}
+              disabled={paginatedTransactionsUtils.loading || transactionsByEmployeeUtils.loading || (transactions.length % 5) !== 0}
               onClick={async () => {
-                await loadAllTransactions()
-                // I thinnk we need to add more rows some how.
-                // wrong here because it is loading all of the trnasactions.
-                
+                  await loadAllTransactions()
               }}
             >
               View More
