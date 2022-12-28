@@ -13,6 +13,7 @@ export const Transactions: TransactionsComponent = ({ transactions }) => {
         transactionId,
         value: newValue,
       })
+      // console.log(newValue)
     },
     [fetchWithoutCache]
   )
@@ -20,7 +21,9 @@ export const Transactions: TransactionsComponent = ({ transactions }) => {
   if (transactions === null) {
     return <div className="RampLoading--container">Loading...</div>
   }
-  console.log(transactions);
+  // console.log(transactions);
+  // console.log(setTransactionApproval);
+
   return (
     <div data-testid="transaction-container">
       {transactions.map((transaction) => (
@@ -33,4 +36,6 @@ export const Transactions: TransactionsComponent = ({ transactions }) => {
       ))}
     </div>
   )
+        console.log(setTransactionApproval);
+
 }

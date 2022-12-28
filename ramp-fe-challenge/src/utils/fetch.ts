@@ -52,7 +52,7 @@ export function fakeFetch<TData, TParams extends object = object>(
 
         case "setTransactionApproval":
           result = setTransactionApproval(params as SetTransactionApprovalParams) as unknown as TData
-
+          console.log(result)
           setTimeout(() => {
             mockApiLogger({ data: { endpoint, params, result } })
             resolve(result)

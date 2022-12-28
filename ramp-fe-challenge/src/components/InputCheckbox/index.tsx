@@ -2,18 +2,17 @@ import classNames from "classnames"
 import { check } from "prettier"
 import { useRef } from "react"
 import { InputCheckboxComponent } from "./types"
-import { Transactions } from "../Transactions"
 
 
 export const InputCheckbox: InputCheckboxComponent = ({ id, checked = false, disabled, onChange }) => {
   const { current: inputId } = useRef(`RampInputCheckbox-${id}`)
   // console.log("change");
-  console.log(id)
+  // console.log(id)
   // console.log(checked)
   // console.log(disabled)
   // console.log(inputId)
   // console.log(InputCheckbox);
-  console.log(Transactions);
+  // console.log(Transactions);
 
   return (
     <div className="RampInputCheckbox--container" data-testid={inputId}>
@@ -38,7 +37,7 @@ export const InputCheckbox: InputCheckboxComponent = ({ id, checked = false, dis
         disabled={disabled}
         onChange={() => {
           // onChange(!checked)
-          console.log(checked)
+          // console.log(checked)
         }}
       />
     </div>

@@ -15,11 +15,12 @@ export function useTransactionsByEmployee(): TransactionsByEmployeeResult {
           employeeId,
         }
       )
-
       setTransactionsByEmployee(data)
+
     },
     [fetchWithCache]
   )
+  console.log(transactionsByEmployee)
 
   const invalidateData = useCallback(() => {
     setTransactionsByEmployee(null)
