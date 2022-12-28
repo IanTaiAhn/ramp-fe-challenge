@@ -3,8 +3,6 @@ import { useCallback, useState } from "react"
 import classNames from "classnames"
 
 import { DropdownPosition, GetDropdownPositionFn, InputSelectOnChange, InputSelectProps } from "./types"
-// import { useEmployees } from "src/hooks/useEmployees" 
-
 
 export function InputSelect<TItem>({
   label,
@@ -64,7 +62,6 @@ export function InputSelect<TItem>({
       }) => {
         const toggleProps = getToggleButtonProps()
         const parsedSelectedItem = selectedItem === null ? null : parseItem(selectedItem)
-// console.log(selectedItem);
         return (
           <div className="RampInputSelect--root">
             <label className="RampText--s RampText--hushed" {...getLabelProps()}>

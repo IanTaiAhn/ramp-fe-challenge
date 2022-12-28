@@ -71,7 +71,7 @@ export function App() {
             if (newValue.id === "1") {
               loadAllTransactions();
             }
-            console.log(newValue);
+            // console.log(newValue);
             loadTransactionsByEmployee(newValue.id)
           }}
         />

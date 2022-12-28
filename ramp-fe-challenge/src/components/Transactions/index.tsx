@@ -20,7 +20,7 @@ export const Transactions: TransactionsComponent = ({ transactions }) => {
   if (transactions === null) {
     return <div className="RampLoading--container">Loading...</div>
   }
-  // console.log(transactions);
+  console.log(transactions);
   return (
     <div data-testid="transaction-container">
       {transactions.map((transaction) => (
