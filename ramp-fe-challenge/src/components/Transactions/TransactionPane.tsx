@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { InputCheckbox } from "../InputCheckbox"
 import { TransactionPaneComponent } from "./types"
-import mockdata from "../../mock-data.json"
+// import mockdata from "../../mock-data.json"
+// import {setTransactionApproval, data} from "../../utils/requests"
 
 export const TransactionPane: TransactionPaneComponent = ({
   transaction,
@@ -9,10 +10,9 @@ export const TransactionPane: TransactionPaneComponent = ({
   setTransactionApproval: consumerSetTransactionApproval,
 }) => {
   const [approved, setApproved] = useState(transaction.approved)
-  // console.log(approved)
-  // console.log(setApproved)
-  // console.log(transaction)
-  // console.log(mockdata.transactions[1].approved = true)
+
+
+
   return (
     <div className="RampPane">
       <div className="RampPane--content">
@@ -31,9 +31,11 @@ export const TransactionPane: TransactionPaneComponent = ({
             transactionId: transaction.id,
             newValue,
           })
-          // console.log(newValue)
+          console.log(newValue)
           // console.log(mockdata.transactions[1].approved = true)
           // console.log(setApproved(newValue))
+          // console.log(transaction.id)
+
           setApproved(newValue)
         }}
       />

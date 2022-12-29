@@ -15,5 +15,10 @@ type TransactionPaneProps = {
   setTransactionApproval: SetTransactionApprovalFunction
 }
 
+// export type SetTransactionApprovalParams = {
+//   transactionId: string
+//   value: boolean
+// }
+
 export type TransactionsComponent = FunctionComponent<TransactionsProps>
 export type TransactionPaneComponent = FunctionComponent<TransactionPaneProps>

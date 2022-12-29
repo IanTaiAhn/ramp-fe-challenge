@@ -10,7 +10,7 @@ import mockData from "../mock-data.json"
 
 const TRANSACTIONS_PER_PAGE = 5
 
-const data: { employees: Employee[]; transactions: Transaction[] } = {
+export const data: { employees: Employee[]; transactions: Transaction[] } = {
   employees: mockData.employees,
   transactions: mockData.transactions,
 }
@@ -60,5 +60,37 @@ export const setTransactionApproval = ({ transactionId, value }: SetTransactionA
   }
 
   transaction.approved = value
-  // console.log(transaction.approved)
+  console.log("trans " + (transactionId))
+  // console.log
+  console.log("trans approved " + (transaction.approved))
+  // console.log("value " + (value))
+  
 }
+
+// export const setTransactionApprovalTest = (transactionId, value) {
+//   const transaction = data.transactions.find(
+//     (currentTransaction) => currentTransaction.id === transactionId
+//   )
+  
+//   if (!transaction) {
+//     throw new Error("Invalid transaction to approve")
+//   }
+
+//   transaction.approved = value
+//   console.log("trans " + (transactionId))
+//   console.log("trans approved " + (transaction.approved))
+// }
+
+// export const setTransactionApprovalTest: any => (transactionId: string, value: boolean) {
+//   const transaction = data.transactions.find(
+//     (currentTransaction) => currentTransaction.id === transactionId
+//   )
+  
+//   if (!transaction) {
+//     throw new Error("Invalid transaction to approve")
+//   }
+
+//   transaction.approved = value
+//   console.log("trans " + (transactionId))
+//   console.log("trans approved " + (transaction.approved))
+// }

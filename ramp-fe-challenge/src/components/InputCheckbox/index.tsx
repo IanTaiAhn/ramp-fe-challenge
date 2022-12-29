@@ -39,6 +39,13 @@ export const InputCheckbox: InputCheckboxComponent = ({ id, checked = false, dis
           // onChange(!checked)
           // console.log(checked)
         }}
+        // onClick={() => {
+        //   onChange(!checked) 
+        //   // onChange(!disabled);
+        //   // console.log(checked)
+          
+        //   // console.log(disabled)
+        // }}
       />
     </div>
   )

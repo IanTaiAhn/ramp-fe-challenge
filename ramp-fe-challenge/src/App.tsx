@@ -18,7 +18,7 @@ export function App() {
     () => paginatedTransactions?.data ?? transactionsByEmployee ?? null,
     [paginatedTransactions, transactionsByEmployee]
   )
-
+  // console.log(transactions)
   const loadAllTransactions = useCallback(async () => {
     setIsLoading(true)
     transactionsByEmployeeUtils.invalidateData()
@@ -31,12 +31,19 @@ export function App() {
 
   const loadTransactionsByEmployee = useCallback(
     async (employeeId: string) => {
+      // console.log("before: " + (paginatedTransactions))
       paginatedTransactionsUtils.invalidateData()
+      // console.log("after: " + (paginatedTransactions))
+
       // console.log("before fetch")
       // console.log(transactionsByEmployeeUtils.loading);
       await transactionsByEmployeeUtils.fetchById(employeeId)
       // console.log("after fetch")
       // console.log(transactionsByEmployeeUtils.loading);
+      transactionsByEmployee?.forEach((el) => {
+        // console.log((el.id) + (el.approved));
+        // console.log(el)
+      })
     },
     [paginatedTransactionsUtils, transactionsByEmployeeUtils]
   )
