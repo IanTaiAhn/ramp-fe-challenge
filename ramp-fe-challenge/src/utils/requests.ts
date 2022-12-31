@@ -30,13 +30,7 @@ export const getTransactionsPaginated = ({
   if (start > data.transactions.length) {
     throw new Error(`Invalid page ${page}`)
   }
-  // console.log("start: " + (start))
-  // console.log("end: " + (end));
-  // console.log(data.transactions.length);
-  // console.log(data.transactions);
   const nextPage = end < data.transactions.length ? page + 1 : null
-  // console.log(data.transactions.slice(0, end))
-
   return {
     nextPage,
     data: data.transactions.slice(0, end),
@@ -58,37 +52,5 @@ export const setTransactionApproval = ({ transactionId, value }: SetTransactionA
   if (!transaction) {
     throw new Error("Invalid transaction to approve")
   }
-  console.log(transaction)
   transaction.approved = value
-  console.log(transaction)
-  console.log("trans " + (transactionId))
-  console.log("trans approved " + (transaction.approved))
 }
-
-// export const setTransactionApprovalTest = (transactionId, value) {
-//   const transaction = data.transactions.find(
-//     (currentTransaction) => currentTransaction.id === transactionId
-//   )
-  
-//   if (!transaction) {
-//     throw new Error("Invalid transaction to approve")
-//   }
-
-//   transaction.approved = value
-//   console.log("trans " + (transactionId))
-//   console.log("trans approved " + (transaction.approved))
-// }
-
-// export const setTransactionApprovalTest: any => (transactionId: string, value: boolean) {
-//   const transaction = data.transactions.find(
-//     (currentTransaction) => currentTransaction.id === transactionId
-//   )
-  
-//   if (!transaction) {
-//     throw new Error("Invalid transaction to approve")
-//   }
-
-//   transaction.approved = value
-//   console.log("trans " + (transactionId))
-//   console.log("trans approved " + (transaction.approved))
-// }

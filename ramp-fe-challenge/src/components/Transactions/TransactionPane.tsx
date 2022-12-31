@@ -1,9 +1,6 @@
 import { useState } from "react"
 import { InputCheckbox } from "../InputCheckbox"
 import { TransactionPaneComponent } from "./types"
-// import mockdata from "../../mock-data.json"
-import {setTransactionApproval, data} from "../../utils/requests"
-import { Transaction } from "src/utils/types"
 
 export const TransactionPane: TransactionPaneComponent = ({
   transaction,
@@ -11,9 +8,6 @@ export const TransactionPane: TransactionPaneComponent = ({
   setTransactionApproval: consumerSetTransactionApproval,
 }) => {
   const [approved, setApproved] = useState(transaction.approved)
-
-
-
 
   return (
     <div className="RampPane">
@@ -33,27 +27,12 @@ export const TransactionPane: TransactionPaneComponent = ({
             transactionId: transaction.id,
             newValue,
           })
-          // console.log(newValue)
-          // console.log(mockdata.transactions[1].approved = true)
-          // console.log(setApproved(newValue))
-          // console.log(transaction.id)
-          const transactionFind: Transaction | undefined = data.transactions.find(
-            (currentTransaction) => currentTransaction.id === transaction.id
-          )
-          // transactionFind.approved = newValue
-          // console.log(transactionFind)
-          // console.log(transactionFind?.approved = newValue)
-          if (transactionFind != undefined) {
-            transactionFind.approved = newValue
-          }
-
           setApproved(newValue)
         }}
       />
     </div>
   )
 }
-
 const moneyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",

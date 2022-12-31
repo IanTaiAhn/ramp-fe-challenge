@@ -8,8 +8,6 @@ import { SetTransactionApprovalFunction, TransactionsComponent } from "./types"
 export const Transactions: TransactionsComponent = ({ transactions }) => {
   const { fetchWithoutCache, loading } = useCustomFetch()
 
-
-
   const setTransactionApproval = useCallback<SetTransactionApprovalFunction>(
     async ({ transactionId, newValue }) => {
       await fetchWithoutCache<void, SetTransactionApprovalParams>("setTransactionApproval", {
@@ -25,9 +23,6 @@ export const Transactions: TransactionsComponent = ({ transactions }) => {
   if (transactions === null) {
     return <div className="RampLoading--container">Loading...</div>
   }
-  // console.log(transactions);
-  // console.log(setTransactionApproval);
-
   return (
     <div data-testid="transaction-container">
       {transactions.map((transaction) => (
